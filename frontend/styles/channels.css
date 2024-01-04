@@ -1,0 +1,341 @@
+/* Entire channel page css */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main{
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/* sidebar css */
+
+.main-sidebar{
+    display: flex;
+    width: 22%;
+    height: 100%;
+    background-color: rgb(240,202,182);
+}
+
+.profile-sidebar div img{
+    width: 1.7rem;
+    height: 2.8rem;
+}
+
+/* icons sidebar with logos */
+
+.logo-div{
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+
+}
+/* profile sidebar */
+.profile-sidebar{
+    width: 20%;
+    height: 100%;
+    background: #C04605;
+    
+}
+
+.parent-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+
+/* Joined channel list sidebar */
+.channels-sidebar{
+    width: 80%;
+    height: 100%;
+    background-color: rgb(240,202,182);
+    overflow-y: scroll;
+    padding-bottom: 2rem;
+}
+.channels-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.channels h3{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.channels-sidebar h1{
+    padding-top: 5.5%;
+    padding-bottom: 13%;
+    font-size: 2.3rem;
+}
+
+.content-div{
+    width: 78%;
+    height: 100%;
+    background-color: yellow;
+    
+}
+.channel-header{
+    width: 100%;
+    height: 8%;
+    background-color: white;
+    border-bottom: 1px solid #E1E1E1;
+}
+
+/* all messages of channel css */
+.message-content{
+    padding-top: 2%;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.timePlusH4{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Css for Container containing all messages */
+.inside{
+    padding-left: 2%;
+    padding-right: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.chat-box{
+    width: 100%;
+    height: 12%;
+    background-color: white;
+}
+
+.message-user-image{
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ededed;
+  border-radius: 50px;
+}
+
+.edit-settingss{
+  padding-top: 1rem;
+}
+
+.icons, .additional-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 58%;
+}
+
+.icons ul li{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    padding: 30% 0 60% 0;
+}
+
+.icons ul li a, .additional-icons a{
+    color: white;
+    font-size: 1.7rem;
+}
+
+.additional-icons{
+    padding-bottom: 30%;
+}
+
+.channels-sidebar{
+    color: rgb(69,68,71);
+    display: flex;
+    flex-direction: column;
+    
+    align-items: flex-start;
+    margin: 5%;
+}
+
+.channels, .friends{
+    margin-bottom: 5%;
+    padding-top: 10%;
+    width: 100%;
+    
+}
+
+/* channels padding */
+.channels-sidebar ul{
+    
+    padding-top: 5%;
+    
+}
+
+.channels-sidebar ul li{
+    list-style-type: none;
+    padding: 5px;
+    padding-left: 5%;
+    
+}
+
+.channels-sidebar ul li a{
+    text-decoration: none;
+    color: rgb(69,68,71);
+    padding: 2% 25% 2% 2%;
+}
+.channels-sidebar ul li:hover a {
+    color: white;
+    
+}
+
+.channels-sidebar ul li:hover {
+    color: white;
+    background-color: #AC3D00;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.channel-header{
+    padding: 0 3% 0 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(69,68,71);
+
+}
+
+.additional-info a i{
+    margin-left: 1rem;
+    font-size: 1.7rem;
+    color: #C04605;
+}
+
+.chat-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-box textarea{
+    width: 93%;
+    height: 85%;
+    border: 1px solid #E1E1E1;
+    padding: 0.8rem;
+    border-radius: 5px;
+    resize: none;
+    outline: none;
+    scrollbar-width: thin; 
+    font-size: 1rem;
+}
+
+.chat-box textarea::-webkit-scrollbar {
+    width: 0; 
+}
+
+.chat-box button{
+    background-color: #C04605;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-left: 1%;
+}
+.chat-box button i{
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* individual message box */
+
+.message-box{
+    display: flex;
+    width: 100%;
+    word-break: break-all;
+    margin-bottom: 1.2rem;
+    height: auto;
+    border-bottom: 1px solid #ededed;
+    padding-top: 0.1rem;
+    padding-bottom: 0.4rem;
+
+}
+
+.message-menu-bar{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* message menu bar css */
+
+.menu-bar{
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.emojis-span{
+  padding-right: 2rem;
+}
+.emojis-span span{
+  padding-right: 0.5rem;
+}
+
+.message-menu-bar p{
+  padding-right: 8rem;
+  font-size: 0.9rem;
+}
+
+.menu-bar i{
+  color: #C04605;
+  padding-right: 0.8rem;
+}
+
+.user-profile{
+    display: flex;
+    width: 5%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+.msg-info{
+    width: 96.5%;
+    height: auto;
+}
+.user-name{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.1rem;
+    height: 1.5rem;
+    padding-bottom: 1.2rem;
+    color: rgb(53, 52, 54);
+}
+
+.user-profile i{
+    font-size: 2rem;
+    border: 1px solid #E1E1E1;
+    padding: 0.3rem;
+    border-radius: 5px;
+    color: #C04605;
+}
+
+.user-message{
+    text-align: justify;
+    color: rgb(69,68,71);
+}

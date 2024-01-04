@@ -1,0 +1,155 @@
+
+/* Base css style */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 20%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* main landing screen css */
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: 60%;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 14px 25px gray, 0 10px 8px gray;
+    overflow: hidden;
+}
+
+/* sign in div css */
+.sign-in{
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* sign up div css */
+.sign-up{
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign-up-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 75%;
+}
+
+.sign-in-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+}
+
+.input-bar{
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+}
+
+.submitButton{
+    border-radius: 25px;
+    border: none;
+    color: white;
+    padding: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+}
+
+.sign-in-header, .sign-up-header{
+    font-weight: 900;
+    font-size: 24px;
+}
+
+/* Overlay css and animation */
+.overlay-container{
+    position: absolute;
+    border-radius: 25px;
+    color: #fff;
+    background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(0);
+    transition: transform .7s ease-in-out;
+    align-items: center;
+    top: 20%;
+    left: 50%;
+    width: 25%;
+    height: 60%;
+    
+}
+
+.overlay-change-button{
+    background: transparent;
+    border-radius: 25px;
+    width: 190px;
+    height: 50px;
+    border: 1px solid #fff;
+    background: #ff445c;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: transform 80ms ease-in;
+}
+
+.sign-up-description{
+    margin-top: 2rem;
+    margin-bottom: 3.1rem;;
+    font-size: 15px;
+    text-align: center;
+}
+
+.sign-up-description div{
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.sign-up-greetings{
+    margin-top: 6rem;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* after animation css for overlay */
+.overlay-container-left{
+    position: absolute;
+    border-radius: 25px;
+    color: #fff;
+    background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0 / cover;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-24rem);
+    transition: transform .7s ease-in-out;
+    width: 25%;
+    height: 60%;
+}
+

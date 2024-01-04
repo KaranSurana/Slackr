@@ -1,0 +1,115 @@
+/* members pop up css */
+
+#members-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .members-picture{
+    width: 32px;
+    height: 34px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    margin-right: 1rem;
+  }
+  .members-popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 40%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .members-heading-section{
+    padding: 2rem;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E1E1E1;
+  }
+  .members-actual-content{
+    height: 100%;
+    scrollbar-width: none;
+    text-align: left;
+  }
+  
+
+  .members-profile{
+    padding: 0rem 1rem;
+  }
+
+  .members-profile-info{
+    padding-right: 2rem;
+  }
+
+  .members-list{
+    height: 70%;
+    overflow-y: scroll;
+    margin: 1rem;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+  }
+  
+  .members-list li{
+    padding: 1rem 0rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    align-items: center;
+  }
+
+  .members-left-profile{
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+  }
+  .members-list li:hover{
+    background-color:antiquewhite;
+  }
+
+  .members-list li a {
+    text-decoration: none;
+    color: black;
+  }
+  .members-list li p {
+    font-size: 0.8rem;
+    color: rgb(69,68,71);
+  }
+
+  .members-list li .members-left-profile i {
+    font-size: 1.5rem;
+    border: 1px solid #E1E1E1;
+    padding: 0.3rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+  }
+  .members-list li .members-right-profile i {
+    padding-right: 1.7rem;
+  }
+
+  .members-right-profile, .members-right-profile img{
+    width: 24px;
+    height: 24px;
+  }
+
+  .close{
+    cursor: pointer;
+  }
+
+
+  .time-stamp{
+    width: 50%;
+    font-size: 0.6rem;
+    color: "#ededed";
+    text-align: right;
+  }

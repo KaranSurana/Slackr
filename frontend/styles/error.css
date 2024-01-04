@@ -1,0 +1,59 @@
+/* error pop up css */
+
+#error-popup{
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  
+  .close-btn{
+    padding: 1rem 2.5rem;
+    background-color: rgb(173, 47, 47);
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .error-popup-content {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 30%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .error-heading-section{
+    padding: 2rem;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E1E1E1;
+  }
+  .error-actual-content{
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .error-icon i{
+  color:  rgb(173, 47, 47);
+  font-size: 5rem;
+  }
+  
+  .error-text{
+  margin-top: 1.5rem ;
+  }
+  

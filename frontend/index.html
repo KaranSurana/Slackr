@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="./resources/logo.png" type="image/png">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <!-- Built Styles -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/membersPopup.css">
+  <link rel="stylesheet" href="styles/allJoinedChannels.css">
+  <link rel="stylesheet" href="styles/channels.css">
+  <link rel="stylesheet" href="styles/createNewChannel.css">
+  <link rel="stylesheet" href="styles/channelDetailsPopup.css">
+  <link rel="stylesheet" href="styles/inviteUsersPopup.css">
+  <link rel="stylesheet" href="styles/error.css">
+  <link rel="stylesheet" href="styles/logoutPopup.css">
+  <link rel="stylesheet" href="styles/notificationsPopup.css">
+  <link rel="stylesheet" href="styles/editProfilePopup.css">
+  <script type="module" src="src/helpers.js"></script>
+
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://kit.fontawesome.com/deb11384cc.js" crossorigin="anonymous"></script>
+  <!-- Built Script -->
+  <script type="module" src="src/main.js"></script>
+
+</head>
+
+<body>
+  <!-- Only Popups in the main html files -->
+
+  <!-- All channel Members pop up -->
+  <div class="members-popup" id="members-popup">
+    <div class="members-popup-content">
+      <div class="members-heading-section">
+        <h2 id="members-heading"># Members List</h2>
+        <div class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="members-actual-content">
+        <ul class="members-list">
+          <!-- Dynamically Filled Content here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Channel Details -->
+  <div class="channel-popup" id="channel-popup">
+    <div class="channel-popup-content">
+      <div class="channel-heading-section">
+        <h2 id="channel-heading"></h2><i style="margin-left: -60%;" data-toggle="modal" data-target="#exampleModal"
+          class="fa-solid fa-pen"></i>
+        <div class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+
+      <!-- Bootstrap Modal for changing channel name -->
+      <div style="z-index: 44;" class="modal" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change Channel Name</h5>
+              <button style="padding: 5px 10px; border: none; border-radius: 5px;" type="button" data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="text" name="edit-channel-message" id="edit-channel-nam">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="edit-channel-name-btn" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="channel-actual-content">
+        <ul class="channel-list">
+          <li>
+            <div class="channel-left-profile">
+
+              <div class="channel-profile-info">
+                <a style="font-weight: 550;" href="">Creator</a>
+                <p id="channel-creator-name"></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="channel-left-profile">
+              <div class="channel-profile-info">
+                <a style="font-weight: 600;" href="">Description</a>
+                <p id="channel-description"></p>
+              </div>
+            </div>
+            <div class="channel-right-profile">
+              <i data-toggle="modal" data-target="#descriptionModal" class="fa-solid fa-pen"></i>
+            </div>
+
+            <!-- Bootstrap Modal for changing channel description -->
+            <div style="z-index: 44;" class="modal" id="descriptionModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div style="background-color: #ededed;" class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Description</h5>
+                    <button style="padding: 5px 10px; border: none; border-radius: 5px;" type="button"
+                      data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div style="display: flex; justify-content: center;" class="modal-body">
+                    <input type="text" name="edit-channel-message" id="edit-channel-desc">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="edit-channel-description-btn" type="button" class="btn btn-primary">Save
+                      changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Channel Details -->
+          <li>
+            <div class="channel-left-profile">
+              <div class="channel-profile-info">
+                <a style="font-weight: 600;" href="">Created At</a>
+                <p id="channel-created-time"></p>
+              </div>
+            </div>
+            <div class="channel-right-profile">
+            </div>
+          </li>
+          <li>
+            <div class="channel-left-profile">
+              <div class="channel-profile-info">
+                <a style="font-weight: 600;" href="">Channel Status</a>
+                <p id="channel-status"></p>
+              </div>
+            </div>
+            <div class="channel-right-profile">
+            </div>
+          </li>
+          <!-- All Pinned Messages -->
+          <li>
+            <div class="channel-left-profile">
+
+              <div class="channel-profile-info">
+                <a style="font-weight: 600;" href="">All Pinned Messages</a>
+                <ul id="pinned-messages">
+                  <!-- Dynamically Filled Content here -->
+                </ul>
+              </div>
+            </div>
+            <div class="channel-right-profile">
+            </div>
+          </li>
+          <li>
+            <div class="channel-left-profile">
+              <div class="channel-profile-info">
+                <button id="leave">Leave Channel</button>
+              </div>
+            </div>
+            <div class="channel-right-profile">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Edit Profile Pop up -->
+  <div class="profile-edit-popup" id="profile-edit-popup">
+    <div class="profile-edit-popup-content">
+      <div class="profile-edit-heading-section">
+        <h2 id="profile-edit-heading"># Profile</h2>
+        <div id="profileClose" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="profile-edit-actual-content">
+        <div class="profile-edit-sidebar">
+          <ul>
+            <li id="edit-profile-option">Edit Profile</li>
+            <li id="password-change-option">Password Change</li>
+
+          </ul>
+        </div>
+        <div class="profile-edit-main-content">
+          <div id="edit-profile-containerr" style="display: block">
+            <h3>Edit Profile</h3>
+            <form id="edit-profile-form">
+              <div class="form-group align-center">
+                <img id="edit-profile-picture" src="">
+                <input type="file" id="file-image" name="profile-image" placeholder="Upload Here!">
+              </div>
+              <!-- Dynamically Filled Content here -->
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+              </div>
+              <div class="form-group">
+                <label for="number">&nbsp;&nbsp;&nbsp;Bio :</label>
+                <input type="text" id="user-description-edit-profile" name="user-description-edit-profile">
+              </div>
+              <button type="submit" id="save-profile-changes" class="submit-btn">Save Changes</button>
+            </form>
+          </div>
+          <!-- Changing Password -->
+          <div id="change-password-containerr" style="display: none">
+            <h3>Change Password</h3>
+            <form id="password-form">
+              <div class="form-group">
+                <input type="password" id="new-password" name="new-password" required placeholder="New Password" />
+                <i class="fas fa-eye password-toggle" id="new-password-toggle"></i>
+              </div>
+              <div class="form-group">
+                <input type="password" id="confirm-password" name="confirm-password" required
+                  placeholder="Confirm New Password" />
+                <i class="fas fa-eye password-toggle" id="new-password-toggle"></i>
+              </div>
+              <button type="submit" class="submit-btn" id="password-submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All public channel list -->
+  <div class="all-channel-popup" id="all-channel-popup">
+    <div class="all-channel-popup-content">
+      <div class="all-channel-heading-section">
+        <h2 id="all-channel-heading">All Channel List</h2>
+        <div class="close" id="close" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="all-channel-actual-content">
+        <ul class="all-channel-list">
+          <!-- Dynamically Filled Content here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification pop up -->
+  <div class="notification-popup" id="notification-popup">
+    <div class="notification-popup-content">
+      <div class="notification-heading-section">
+        <h2 id="notification-heading">Notifications</h2>
+        <div class="close" id="removeClose"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="notification-actual-content">
+        <ul class="notification-list">
+          <li>
+            <div class="notification-left-profile">
+              <div class="notification-profile">
+                <i class="fa-solid fa-at"></i>
+              </div>
+              <div class="notification-profile-info">
+                <a href="">New Message on channel join</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus rerum quae, alias
+                  asperiores ea tempore, voluptatibus officiis aspernatur, accusamus eveniet provident
+                  porro! Tempore cupiditate explicabo iusto consequatur. Ea, cum quis.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="notification-left-profile">
+              <div class="notification-profile">
+                <i class="fa-solid fa-at"></i>
+              </div>
+              <div class="notification-profile-info">
+                <a href="">New Message on channel join</a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus rerum quae, alias
+                  asperiores ea tempore, voluptatibus officiis aspernatur, accusamus eveniet provident
+                  porro! Tempore cupiditate explicabo iusto consequatur. Ea, cum quis.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Creating new channel popup -->
+  <div class="new-channel-popup" id="new-channel-popup">
+    <div class="new-channel-popup-content">
+      <div class="new-channel-heading-section">
+        <h2 id="new-channel-heading">Create new Channel</h2>
+        <div class="close" id="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <!-- Form for creating new channel -->
+      <div class="new-channel-actual-content">
+        <form id="create-new-channel">
+          <label for="channelName">Channel Name:</label>
+          <input type="text" id="channelName" name="name" required><br><br>
+
+          <label>Channel Type:</label><br>
+          <input type="radio" id="public" name="private" value="false" checked>
+          <label for="public">Public</label><br>
+
+          <input type="radio" id="private" name="private" value="true">
+          <label for="private">Private</label><br><br>
+
+          <label for="description">Description:</label><br>
+          <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+
+          <input class="submit-btn-1" type="submit" value="Create channel">
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logout popup -->
+  <div class="logout-popup" id="logout-popup">
+    <div class="logout-popup-content">
+      <div class="logout-heading-section">
+        <h2 id="logout-heading">Logout?</h2>
+        <div class="close" id="close" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="logout-actual-content">
+        <div class="logout-text">
+          <p>Are you sure you want to logout ?</p>
+        </div>
+        <div class="btn-div">
+          <button class="yes">
+            Sure!
+          </button>
+          <button class="no">
+            Nope!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- error popup -->
+  <div class="error-popup" id="error-popup">
+    <div class="error-popup-content">
+      <div class="error-heading-section">
+        <h2 id="error-heading">Uh oh! That's an error.</h2>
+        <div class="close" id="close" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="error-actual-content">
+        <div class="error-icon">
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <div class="error-text">
+          <p id="error-name">OOPs error occured !</p>
+        </div>
+        <div class="btn-div">
+          <button class="close-btn">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invite other users to channel pop up -->
+  <div class="invite-popup" id="invite-popup">
+    <div class="invite-popup-content">
+      <div class="invite-heading-section">
+        <h2 id="invite-heading"># Invite Someone</h2>
+        <div class="close" id="close" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="invite-actual-content">
+        <ul class="invite-list">
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Static User's profile page -->
+  <div class="actual-profile-popup" id="actual-profile-popup">
+    <div class="actual-profile-popup-content">
+      <div class="actual-profile-heading-section">
+        <h2 id="actual-profile-heading">Profile</h2>
+        <div class="close" id="close" class="close"><i class="fa-solid fa-xmark"></i></div>
+      </div>
+      <div class="actual-profile-actual-content">
+        <div class="profile-img-div">
+          <img id="user-img-actual-profile" src="" alt="User's Image">
+        </div>
+        <div class="profile-info-div">
+          <p class="name"></p>
+          <p class="contact"></p>
+          <p class="bio"></p>
+        </div>
+        <button class="edit">Edit Profile</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
